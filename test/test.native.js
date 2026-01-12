@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2026 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -20,13 +20,14 @@
 
 // MODULES //
 
+var resolve = require( 'path' ).resolve;
 var tape = require( 'tape' );
+var tryRequire = require( '@stdlib/utils-try-require' );
 var isnan = require( '@stdlib/math-base-assert-is-nan' );
 var abs = require( '@stdlib/math-base-special-abs' );
 var PINF = require( '@stdlib/constants-float64-pinf' );
 var NINF = require( '@stdlib/constants-float64-ninf' );
 var EPS = require( '@stdlib/constants-float64-eps' );
-var mgf = require( './../lib' );
 
 
 // FIXTURES //
@@ -36,15 +37,23 @@ var largeRate = require( './fixtures/julia/large_rate.json' );
 var bothLarge = require( './fixtures/julia/both_large.json' );
 
 
+// VARIABLES //
+
+var mgf = tryRequire( resolve( __dirname, './../lib/native.js' ) );
+var opts = {
+	'skip': ( mgf instanceof Error )
+};
+
+
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is a function', opts, function test( t ) {
 	t.ok( true, __filename );
 	t.strictEqual( typeof mgf, 'function', 'main export is a function' );
 	t.end();
 });
 
-tape( 'if provided `NaN` for any parameter, the function returns `NaN`', function test( t ) {
+tape( 'if provided `NaN` for any parameter, the function returns `NaN`', opts, function test( t ) {
 	var y = mgf( NaN, 0.0, 1.0 );
 	t.strictEqual( isnan( y ), true, 'returns expected value' );
 	y = mgf( 0.0, NaN, 1.0 );
@@ -54,7 +63,7 @@ tape( 'if provided `NaN` for any parameter, the function returns `NaN`', functio
 	t.end();
 });
 
-tape( 'if provided a negative `k`, the function returns `NaN`', function test( t ) {
+tape( 'if provided a negative `k`, the function returns `NaN`', opts, function test( t ) {
 	var y;
 
 	y = mgf( 2.0, -1.0, 2.0 );
@@ -78,7 +87,7 @@ tape( 'if provided a negative `k`, the function returns `NaN`', function test( t
 	t.end();
 });
 
-tape( 'if provided a negative `lambda`, the function returns `NaN`', function test( t ) {
+tape( 'if provided a negative `lambda`, the function returns `NaN`', opts, function test( t ) {
 	var y;
 
 	y = mgf( 2.0, 2.0, -1.0 );
@@ -102,7 +111,7 @@ tape( 'if provided a negative `lambda`, the function returns `NaN`', function te
 	t.end();
 });
 
-tape( 'if provided `t >= lambda`, the function returns `NaN`', function test( t ) {
+tape( 'if provided `t >= lambda`, the function returns `NaN`', opts, function test( t ) {
 	var y = mgf( 1.5, 1, 1.0 );
 	t.strictEqual( isnan( y ), true, 'returns expected value' );
 	y = mgf( 0.8, 1, 0.5 );
@@ -110,7 +119,7 @@ tape( 'if provided `t >= lambda`, the function returns `NaN`', function test( t 
 	t.end();
 });
 
-tape( 'the function evaluates the mgf for `x` given large `k` and `lambda`', function test( t ) {
+tape( 'the function evaluates the mgf for `x` given large `k` and `lambda`', opts, function test( t ) {
 	var expected;
 	var lambda;
 	var delta;
@@ -137,7 +146,7 @@ tape( 'the function evaluates the mgf for `x` given large `k` and `lambda`', fun
 	t.end();
 });
 
-tape( 'the function evaluates the mgf for `x` given large shape parameter `k`', function test( t ) {
+tape( 'the function evaluates the mgf for `x` given large shape parameter `k`', opts, function test( t ) {
 	var expected;
 	var lambda;
 	var delta;
@@ -164,7 +173,7 @@ tape( 'the function evaluates the mgf for `x` given large shape parameter `k`', 
 	t.end();
 });
 
-tape( 'the function evaluates the mgf for `x` given large rate parameter `lambda`', function test( t ) {
+tape( 'the function evaluates the mgf for `x` given large rate parameter `lambda`', opts, function test( t ) {
 	var expected;
 	var lambda;
 	var delta;

@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2026 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,23 +16,7 @@
 * limitations under the License.
 */
 
-'use strict';
+#include "stdlib/stats/base/dists/erlang/mgf.h"
+#include "stdlib/math/base/napi/ternary.h"
 
-// MODULES //
-
-var tape = require( 'tape' );
-var mgf = require( './../lib' );
-
-
-// TESTS //
-
-tape( 'main export is a function', function test( t ) {
-	t.ok( true, __filename );
-	t.strictEqual( typeof mgf, 'function', 'main export is a function' );
-	t.end();
-});
-
-tape( 'attached to the main export is a factory method for generating `mgf` functions', function test( t ) {
-	t.strictEqual( typeof mgf.factory, 'function', 'exports a factory method' );
-	t.end();
-});
+STDLIB_MATH_BASE_NAPI_MODULE_DDD_D( stdlib_base_dists_erlang_mgf )
