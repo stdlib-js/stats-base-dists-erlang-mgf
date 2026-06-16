@@ -2,6 +2,40 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-06-16)
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`c622071`](https://github.com/stdlib-js/stdlib/commit/c6220711cca10efa75dad796fcd27921c2d38ca7) - **docs:** modernize `stats/base/dists/erlang/mgf` examples [(#12924)](https://github.com/stdlib-js/stdlib/pull/12924) _(by Philipp Burckhardt)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Philipp Burckhardt
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.3.1">
 
 ## 0.3.1 (2026-02-08)
