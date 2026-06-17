@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`b8c28ee`](https://github.com/stdlib-js/stdlib/commit/b8c28ee715091e82fec21000a95fdb33fabed2fc) - **style:** add missing decimal [(#12937)](https://github.com/stdlib-js/stdlib/pull/12937) _(by Philipp Burckhardt)_
 -   [`dbe4c82`](https://github.com/stdlib-js/stdlib/commit/dbe4c820ea98330253b4054a5bc9b04b2293415b) - **docs:** propagate fixes to sibling packages [(#12677)](https://github.com/stdlib-js/stdlib/pull/12677) _(by Philipp Burckhardt, Athan Reines)_
 -   [`c622071`](https://github.com/stdlib-js/stdlib/commit/c6220711cca10efa75dad796fcd27921c2d38ca7) - **docs:** modernize `stats/base/dists/erlang/mgf` examples [(#12924)](https://github.com/stdlib-js/stdlib/pull/12924) _(by Philipp Burckhardt)_
 
